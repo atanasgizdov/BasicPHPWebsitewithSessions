@@ -10,4 +10,5 @@
         include('../errors/database_error.php');
         exit();
     }
+	
 ?>

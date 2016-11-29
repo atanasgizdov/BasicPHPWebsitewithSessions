@@ -1,4 +1,7 @@
-<?php include 'view/header.php'; ?>
+<?php include 'view/header.php';
+include 'model/login.php'; 
+include 'model/session_checker.php';?>
+
 <main>
     <nav>    
     <h2>Administrators</h2>
