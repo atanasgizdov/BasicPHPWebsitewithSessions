@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-
+<?php require ('../tech_support/model/logout.php');
+?>
 <!-- the head section -->
 <head>
     <title>SportsPro Technical Support</title>
@@ -16,6 +17,7 @@
     <nav>
         <ul>
             <li><a href="/tech_support/index.php">Home</a></li>
+            <li><button type="button" onclick=logout();>Log Out</button></li>
         </ul>
     </nav>
 </header>

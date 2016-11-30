@@ -11,4 +11,14 @@
         exit();
     }
 	
+$localhost = "127.0.0.1";
+$username = 'ts_user';
+$password = 'pa55word';
+$dbname = "tech_support";
+
+$connection = mysqli_connect($localhost,$username,$password, $dbname);
+if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+	
 ?>
