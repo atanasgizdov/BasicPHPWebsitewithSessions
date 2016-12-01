@@ -52,8 +52,13 @@ h1 {
 h2 {
     font-size: 120%;
     margin: 0;
-    padding: .25em 0 .25em ;
+    padding: .25em 0 .25em ;	
 }
+h3 {
+	font-style:italic;
+	color:red;
+}
+
 h1, h2 {
     color: black;
 }
