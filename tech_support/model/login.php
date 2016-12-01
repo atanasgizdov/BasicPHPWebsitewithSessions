@@ -3,10 +3,12 @@ require ('/database.php');
 
 session_start();
 
+
 if (isset($_POST['submit'])) {
 if (empty($_POST['username']) || empty($_POST['password'])) {
-echo "session is set";
+	echo "<h3 align = center>Please enter Username/Password</h3>";
 }
+
 
 else {	
 
@@ -27,11 +29,12 @@ function check_admin_user($connection, $username, $password) {
 	$result = mysqli_query($connection, $sql);
 	
 	if (mysqli_num_rows($result) > 0) {
+		$_SESSION['loggedin'] = true;	
 		$_SESSION['login_user']=$username;
 		header("location: ../index_admin.php");
 	}
 	else {
-		echo "<h3 align = center>Sorry your password is incorrect - please try again</h3>";
+		echo "<h3 align = center>Sorry your Username/Password is incorrect - please try again</h3>";
 	}
 }
 ?>
