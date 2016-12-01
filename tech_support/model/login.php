@@ -5,9 +5,7 @@ session_start();
 
 if (isset($_POST['submit'])) {
 if (empty($_POST['username']) || empty($_POST['password'])) {
-
-// TO DO first
-// create a method to re-direct to log-in on error
+echo "session is set";
 }
 
 else {	
@@ -30,10 +28,10 @@ function check_admin_user($connection, $username, $password) {
 	
 	if (mysqli_num_rows($result) > 0) {
 		$_SESSION['login_user']=$username;
-		header("location: /index.php");
+		header("location: ../index_admin.php");
 	}
 	else {
-		echo "it entered the loop and found no records";
+		echo "<h3 align = center>Sorry your password is incorrect - please try again</h3>";
 	}
 }
 ?>
