@@ -1,7 +1,7 @@
 <?php
 require('../model/database.php');
 require('../model/customer_db.php');
-require '../model/session_checker.php';
+include '../model/session_checker.php';
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {

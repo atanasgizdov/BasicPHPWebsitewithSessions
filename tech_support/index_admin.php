@@ -1,5 +1,6 @@
 <?php include 'view/header.php'; 
-include 'model/session_checker_index_level.php';?>
+include 'model/session_checker_index_level.php';	
+?>
 
 <main>
     <nav>    
