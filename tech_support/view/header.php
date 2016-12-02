@@ -15,8 +15,15 @@
     <nav>
         <ul>
             <li><a href="/tech_support/index.php">Home</a></li>
-            <?php if (isset($_SESSION['login_user'])) {
-			echo "<li><button type=button>Log Out</button></li>";
+            <?php 
+            // if logged in as admin - go to admin menu
+           	// TO DO
+            if (isset($_SESSION['login_user'])) {
+				
+			echo "<form action=../model/logout.php method=\"post\">";
+			echo "<input name=\"submit\" type=\"submit\" id = \"aligned\" value =\"Log Out\">";
+			echo "</form>";
+			//echo "<li><button type=button>Log Out</button></li>";
 			} ?>
         </ul>
     </nav>

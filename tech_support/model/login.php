@@ -20,10 +20,11 @@ $username = stripslashes($username);
 $password = stripslashes($password);
 
 check_admin_user($connection, $username, $password);
+
 	}
 }
 
-//access functions for users
+//access functions for admin users
 function check_admin_user($connection, $username, $password) {
    	$sql = "select * from administrators where username = '$username' and password = '$password'";
 	$result = mysqli_query($connection, $sql);
@@ -31,6 +32,7 @@ function check_admin_user($connection, $username, $password) {
 	if (mysqli_num_rows($result) > 0) {
 		$_SESSION['loggedin'] = true;	
 		$_SESSION['login_user']=$username;
+		$_SESSION['usertype']='admin';
 		header("location: ../index_admin.php");
 	}
 	else {
