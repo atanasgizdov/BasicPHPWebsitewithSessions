@@ -5,8 +5,12 @@ function logout() {
      foreach($_SESSION as $sessionKey => $sessionValue)
          session_unset($_SESSION[$sessionKey]);
  }
-session_destroy();
-header("Location: index.php"); // Redirecting To Home Page
-
 }
+session_start();
+logout();
+session_unset();
+session_destroy();
+header("Location: ../index.php"); // Redirecting To Home Page
+
+
 ?>
