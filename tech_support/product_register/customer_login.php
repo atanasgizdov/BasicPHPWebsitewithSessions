@@ -4,11 +4,10 @@
     <h2>Customer Login</h2>
     <p>You must login before you can register a product.</p>
     <!-- display a search form -->
-    <form action="." method="post">
+    <form action="customer_login_execute.php" method="post">
         <input type="hidden" name="action" value="get_customer">
         <label>Email:</label>
-        <input type="text" name="email" 
-               value="<?php echo htmlspecialchars($email); ?>">
+        <input type="email" name="email">
         <input type="submit" value="Login">
     </form>
 
