@@ -3,14 +3,18 @@ require('../model/database.php');
 require('../model/customer_db.php');
 include '../model/session_checker.php';
 
+// disalow entry if not an admin or customer user
+if (isset($_SESSION['loggedin']) AND $_SESSION['loggedin'] == true) {
 
-// disalow entry if not an admin or tech user
-/*if (isset($_SESSION['usertype']) && $_SESSION['userype'] == 'customer' || isset($_SESSION['usertype']) && $_SESSION['userype'] == 'admin' ) {
+if (isset($_SESSION['usertype']) AND ($_SESSION['usertype'] == "admin" OR $_SESSION['usertype'] == "customer") ) {
 	
 }
 else {
-	header("location: ../view/invalidpermissions.php");
-}*/
+	header("location: ../view/invalidpermissions.php?".$_SESSION['usertype']);
+	
+	}
+
+}
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {

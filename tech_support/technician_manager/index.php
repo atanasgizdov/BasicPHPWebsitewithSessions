@@ -4,13 +4,18 @@ require'../model/technician_db.php';
 include '../model/session_checker.php';
 
 // disalow entry if not an admin or tech user
+if (isset($_SESSION['loggedin']) AND $_SESSION['loggedin'] == true) {
 
-/*if (isset($_SESSION['usertype']) && $_SESSION['userype'] == 'tech' || isset($_SESSION['usertype']) && $_SESSION['userype'] == 'admin' ) {
+if (isset($_SESSION['usertype']) AND ($_SESSION['usertype'] == "admin" OR $_SESSION['usertype'] == "tech") ) {
 	
 }
 else {
-	header("location: ../view/invalidpermissions.php");
-}*/
+	header("location: ../view/invalidpermissions.php?".$_SESSION['usertype']);
+	
+	}
+
+}
+
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {

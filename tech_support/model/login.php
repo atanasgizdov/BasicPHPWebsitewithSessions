@@ -21,7 +21,7 @@ else {
 		
 		// check which type of user is trying to access and user appropriate check
 		if (isset($_SESSION['userTypeOnEntry']) && $_SESSION['userTypeOnEntry'] == 'admin') {
-		check_admin_user($connection, $username, $password);	
+		check_admin_user($connection, $username, $password);
 		}
 		else if (isset($_SESSION['userTypeOnEntry']) && $_SESSION['userTypeOnEntry'] == 'tech') {
 		check_tech_user($connection, $username, $password);
@@ -41,7 +41,7 @@ function check_admin_user($connection, $username, $password) {
 	if (mysqli_num_rows($result) > 0) {
 		$_SESSION['loggedin'] = true;	
 		$_SESSION['login_user']=$username;
-		$_SESSION['usertype']='admin';
+		$_SESSION['usertype']="admin";
 		header("location: ../index_admin.php");
 	}
 	else {
@@ -56,7 +56,7 @@ function check_tech_user($connection, $username, $password) {
 	if (mysqli_num_rows($result) > 0) {
 		$_SESSION['loggedin'] = true;	
 		$_SESSION['login_user']=$username;
-		$_SESSION['usertype']='tech';
+		$_SESSION['usertype']="tech";
 		header("location: ../technician_manager");
 	}
 	else {
@@ -71,7 +71,7 @@ function check_customer_user($connection, $username, $password) {
 	if (mysqli_num_rows($result) > 0) {
 		$_SESSION['loggedin'] = true;	
 		$_SESSION['login_user']=$username;
-		$_SESSION['usertype']='customer';
+		$_SESSION['usertype']="customer";
 		header("location: ../customer_manager");
 	}
 	else {
