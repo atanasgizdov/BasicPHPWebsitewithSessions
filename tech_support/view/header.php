@@ -7,14 +7,6 @@
           href="/tech_support/main.css">
 </head>
 
-<?php 
-//make sure using https - on slides
-/*$https = filter_input(input_server, 'HTTPS');
-
-if (!$https) {
-	$host = filter_input(INPUT_SERVER);
-}*/
-?>
 
 <!-- the body section -->
 <body>
