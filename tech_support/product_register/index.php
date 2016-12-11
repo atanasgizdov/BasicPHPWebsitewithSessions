@@ -3,6 +3,7 @@ require('../model/database.php');
 require('../model/customer_db.php');
 require('../model/product_db.php');
 require('../model/registration_db.php');
+include '../model/session_checker.php';
 
 
 // disalow entry if not an admin
