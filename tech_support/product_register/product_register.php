@@ -1,6 +1,5 @@
 <?php include '../view/header.php'; 
     include '../model/database.php';
-    include '../model/product_db.php';>
 <main>
 
     <h2>Register Product</h2>
