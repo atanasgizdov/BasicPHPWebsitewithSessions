@@ -1,4 +1,5 @@
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php'; 
+?>
 <main>
 
     <h2>Customer Login</h2>
