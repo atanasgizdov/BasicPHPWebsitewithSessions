@@ -7,6 +7,7 @@
           href="/tech_support/main.css">
 </head>
 
+
 <!-- the body section -->
 <body>
 <header>
@@ -14,16 +15,19 @@
     <p>Sports management software for the sports enthusiast</p>
     <nav>
         <ul>
+        	
             <li><a href="/tech_support/index.php">Home</a></li>
             <?php 
-            // if logged in as admin - go to admin menu
-           	// TO DO
+            
+            // if session is set and active, show log out button
             if (isset($_SESSION['login_user'])) {
 				
 			echo "<form action=../model/logout.php method=\"post\">";
 			echo "<input name=\"submit\" type=\"submit\" id = \"aligned\" value =\"Log Out\">";
 			echo "</form>";
-			//echo "<li><button type=button>Log Out</button></li>";
+			
+			//if not admin user, disallow home button
+			
 			} ?>
         </ul>
     </nav>

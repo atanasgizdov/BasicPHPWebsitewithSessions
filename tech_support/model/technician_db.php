@@ -1,28 +1,43 @@
 <?php
 function get_technicians() {
     global $db;
-    $query = 'SELECT * FROM technicians
+	try{
+		$query = 'SELECT * FROM technicians
               ORDER BY lastName';
     $statement = $db->prepare($query);
     $statement->execute();
     $technicians = $statement->fetchAll();
     $statement->closeCursor();   
     return $technicians;
+	}
+    catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        include('../errors/error.php');
+        exit();
+    }
 }
 
 function delete_technician($technician_id) {
     global $db;
-    $query = 'DELETE FROM technicians
+	try{
+		$query = 'DELETE FROM technicians
               WHERE techID = :technician_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':technician_id', $technician_id);
     $statement->execute();
     $statement->closeCursor();
+	}
+    catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        include('../errors/error.php');
+        exit();
+    }
 }
 
 function add_technician($first_name, $last_name, $email, $phone, $password) {
     global $db;
-    $query = 'INSERT INTO technicians
+	try{
+		$query = 'INSERT INTO technicians
                  (firstName, lastName, phone, email, password)
               VALUES
                  (:first_name, :last_name, :phone, :email, :password)';
@@ -34,11 +49,20 @@ function add_technician($first_name, $last_name, $email, $phone, $password) {
     $statement->bindValue(':password', $password);
     $statement->execute();
     $statement->closeCursor();
+	}
+	 catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        include('../errors/error.php');
+        exit();
+    }
+
+    
 }
 
 function update_technician($technician_id, $first_name, $last_name, $email, $phone, $password) {
     global $db;
-    $query = 'UPDATE technicians
+	try{
+		$query = 'UPDATE technicians
               SET firstName = :first_name,
                   lastName = :last_name,
                   phone = :phone,
@@ -54,6 +78,13 @@ function update_technician($technician_id, $first_name, $last_name, $email, $pho
     $statement->bindValue(':technician_id', $technician_id);
     $statement->execute();
     $statement->closeCursor();
+	}
+	catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        include('../errors/error.php');
+        exit();
+    }
+    
 }
 
 ?>

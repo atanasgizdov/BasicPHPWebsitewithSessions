@@ -1,7 +1,8 @@
 <?php
 function add_incident($customer_id, $product_code, $title, $description) {
     global $db;
-    $date_opened = date('Y-m-d');  // get current date in yyyy-mm-dd format
+	try{
+		$date_opened = date('Y-m-d');  // get current date in yyyy-mm-dd format
     $query =
         'INSERT INTO incidents
             (customerID, productCode, dateOpened, title, description)
@@ -16,5 +17,12 @@ function add_incident($customer_id, $product_code, $title, $description) {
     $statement->bindValue(':description', $description);
     $statement->execute();
     $statement->closeCursor();
+	}
+	catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        include('../errors/error.php');
+        exit();
+    }
+    
 }
 ?>
