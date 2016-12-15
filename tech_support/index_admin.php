@@ -1,5 +1,19 @@
 <?php include 'view/header.php'; 
-include 'model/session_checker_index_level.php';	
+require 'model/session_checker_index_level.php';	
+
+// disalow entry if not an admin
+if (isset($_SESSION['loggedin']) AND $_SESSION['loggedin'] == true) {
+
+if (isset($_SESSION['usertype']) AND ($_SESSION['usertype'] == "admin")) {
+	
+}
+else {
+	header("location: view/invalidpermissions.php?".$_SESSION['usertype']);
+	
+	}
+
+}
+
 ?>
 
 <main>
