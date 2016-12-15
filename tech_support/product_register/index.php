@@ -5,13 +5,25 @@ require('../model/product_db.php');
 require('../model/registration_db.php');
 include '../model/session_checker.php';
 
-$action = filter_input(INPUT_POST, 'action');
+if (isset($_SESSION['loggedin']) AND $_SESSION['loggedin'] == true) {
+if (isset($_SESSION['usertype']) AND ($_SESSION['usertype'] == "customer")) {
+$action='get_customer';	
+}
+    
+else {
+	header("location: view/invalidpermissions.php?".$_SESSION['usertype']);
+	
+	}
+ 
+}
+else {$action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action === NULL) {
         $action = 'login_customer';
     }
-}
+}  }
+
 
 //instantiate variable(s)
 $email = '';
