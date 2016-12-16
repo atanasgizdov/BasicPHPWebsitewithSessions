@@ -29,7 +29,9 @@
                         $customer['firstName'] . ' ' . 
                         $customer['lastName']); ?></td>
                 <td><?php echo htmlspecialchars($customer['email']); ?></td>
-                <td><?php echo htmlspecialchars($customer['city']); ?></td>
+                <td><?php 
+                echo htmlspecialchars($customer['city']);
+                ?></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action" value="display_customer" />
                     <input type="hidden" name="customer_id"
