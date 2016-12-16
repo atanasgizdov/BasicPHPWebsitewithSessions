@@ -7,8 +7,10 @@
     <form action="." method="post">
         <input type="hidden" name="action" value="get_customer">
         <label>Email:</label>
-        <input type="text" name="email" 
-               value="<?php echo htmlspecialchars($email); ?>">
+        <input type="email" name="email">
+        <br>
+        <label>Password:</label>
+        <input type="text" name="password">
         <input type="submit" value="Login">
     </form>
 
